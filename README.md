@@ -1,12 +1,37 @@
 <h1 align="center">Karate ServeRest API Automation</h1>
 
-[![Java](https://img.shields.io/badge/Java-17%2B-orange)](https://www.oracle.com/java/)
-[![Maven](https://img.shields.io/badge/Maven-Build-C71A36)](https://maven.apache.org/)
-[![Karate DSL](https://img.shields.io/badge/Karate-DSL-00C853)](https://karatelabs.github.io/karate/)
-[![API Testing](https://img.shields.io/badge/API-Testing-1E88E5)](#)
-[![Status](https://img.shields.io/badge/Status-In%20Progress-yellow)](#)
-[![Last Commit](https://img.shields.io/github/last-commit/CarlosArman/karate-serverest-api-automation)](https://github.com/CarlosArman/karate-serverest-api-automation/commits/main)
-[![Repo Size](https://img.shields.io/github/repo-size/CarlosArman/karate-serverest-api-automation)](https://github.com/CarlosArman/karate-serverest-api-automation)
+<p align="center">
+  <a href="https://www.oracle.com/java/">
+    <img src="https://img.shields.io/badge/Java-17%2B-orange" />
+  </a>
+  <a href="https://maven.apache.org/">
+    <img src="https://img.shields.io/badge/Maven-Build-C71A36" />
+  </a>
+  <a href="https://karatelabs.github.io/karate/">
+    <img src="https://img.shields.io/badge/Karate-DSL-00C853" />
+  </a>
+  <a href="#">
+    <img src="https://img.shields.io/badge/API-Testing-1E88E5" />
+  </a>
+  <a href="https://www.datafaker.net/">
+    <img src="https://img.shields.io/badge/Datafaker-Test%20Data-7B1FA2" />
+  </a>
+  <a href="#">
+    <img src="https://img.shields.io/badge/Status-In%20Progress-yellow" />
+  </a>
+  <a href="https://github.com/CarlosArman/karate-serverest-api-automation/commits/main">
+    <img src="https://img.shields.io/github/last-commit/CarlosArman/karate-serverest-api-automation" />
+  </a>
+  <a href="https://github.com/CarlosArman/karate-serverest-api-automation">
+    <img src="https://img.shields.io/github/repo-size/CarlosArman/karate-serverest-api-automation" />
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://serverest.dev/?lang=en">
+    <img src="https://img.shields.io/badge/ServeRest-API%20Docs-0A66C2" />
+  </a>
+</p>
 
 ---
 
@@ -39,9 +64,13 @@ runner**.
 
 ### Descripción
 
-Proyecto de automatización de pruebas API con **Karate DSL** para **ServeRest**.  
-Actualmente cubre el módulo de **Usuarios** con escenarios **positivos y negativos**, validación de **schemas JSON**,
-datos reutilizables y respuestas esperadas externalizadas.
+Proyecto de automatización de pruebas API construido con **Karate DSL** para **ServeRest**.
+
+🔗 **Documentación oficial de la API:** [ServeRest API](https://serverest.dev/?lang=es)
+
+La implementación actual cubre el módulo de **Usuarios**, incluyendo escenarios de prueba **positivos y negativos**,
+validación de **esquemas JSON**, datos de prueba reutilizables, **generación dinámica de datos con Datafaker** y
+respuestas esperadas externalizadas.
 
 ### Alcance actual
 
@@ -60,6 +89,7 @@ Cobertura actual del módulo **Usuarios**:
 - Karate DSL
 - JUnit 5
 - JSON
+- Datafaker
 
 ### Estructura del proyecto
 
@@ -199,6 +229,7 @@ El runner paralelo además genera:
 - Ejecución selectiva por tags
 - Ejecución paralela
 - Estructura modular y escalable
+- Generación dinámica de datos de prueba con Datafaker
 - Enfoque de diseño basado en ISTQB
 
 ### Próximos pasos
@@ -212,9 +243,12 @@ El runner paralelo además genera:
 
 ### Description
 
-API test automation project built with **Karate DSL** for **ServeRest**.  
-It currently covers the **Users** module with **positive and negative** scenarios, **JSON schema** validation, reusable
-test data, and externalized expected responses.
+API test automation project built with **Karate DSL** for **ServeRest**.
+
+🔗 **Official API documentation:** [ServeRest API](https://serverest.dev/?lang=en)
+
+The current implementation covers the **Users** module with **positive and negative** test scenarios, **JSON schema**
+validation, reusable test data, and externalized expected responses.
 
 ### Current scope
 
@@ -233,6 +267,7 @@ Current coverage for the **Users** module:
 - Karate DSL
 - JUnit 5
 - JSON
+- Datafaker
 
 ### Project structure
 
@@ -372,6 +407,7 @@ The parallel runner also generates:
 - Tag-based selective execution
 - Parallel execution
 - Modular and scalable structure
+- Dynamic test data generation with Datafaker
 - ISTQB-aligned test design
 
 ### Next steps
