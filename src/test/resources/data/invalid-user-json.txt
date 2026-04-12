@@ -1,0 +1,6 @@
+{
+  "nome": "Default User",
+  "email": "default@qa.com",
+  "password": "teste123",
+   "administrador": "true",
+}
