@@ -1,392 +1,208 @@
 <h1 align="center">Karate ServeRest API Automation</h1>
-
+<hr>
 <p align="center">
+  <a href="https://github.com/CarlosArman/karate-serverest-api-automation">
+    <img src="https://img.shields.io/badge/Version-v1.0.0-blue" alt="Version" />
+  </a>
+  <img src="https://img.shields.io/badge/Architecture-Portfolio%20Ready-success" alt="Architecture" />
   <a href="https://www.oracle.com/java/">
-    <img src="https://img.shields.io/badge/Java-17%2B-orange" />
+    <img src="https://img.shields.io/badge/Java-17%2B-007396" alt="Java" />
   </a>
   <a href="https://maven.apache.org/">
-    <img src="https://img.shields.io/badge/Maven-Build-C71A36" />
+    <img src="https://img.shields.io/badge/Maven-Build-C71A36" alt="Maven" />
   </a>
   <a href="https://karatelabs.github.io/karate/">
-    <img src="https://img.shields.io/badge/Karate-DSL-00C853" />
+    <img src="https://img.shields.io/badge/Karate-API%20Testing-000000" alt="Karate" />
   </a>
-  <a href="#">
-    <img src="https://img.shields.io/badge/API-Testing-1E88E5" />
-  </a>
-  <a href="https://www.datafaker.net/">
-    <img src="https://img.shields.io/badge/Datafaker-Test%20Data-7B1FA2" />
-  </a>
-  <a href="#">
-    <img src="https://img.shields.io/badge/Status-In%20Progress-yellow" />
-  </a>
-  <a href="https://github.com/CarlosArman/karate-serverest-api-automation/commits/main">
-    <img src="https://img.shields.io/github/last-commit/CarlosArman/karate-serverest-api-automation" />
-  </a>
-  <a href="https://github.com/CarlosArman/karate-serverest-api-automation">
-    <img src="https://img.shields.io/github/repo-size/CarlosArman/karate-serverest-api-automation" />
+  <a href="https://junit.org/junit5/">
+    <img src="https://img.shields.io/badge/JUnit-5-25A162" alt="JUnit 5" />
   </a>
 </p>
 
 <p align="center">
+  <img src="https://img.shields.io/badge/Testing-API-1E88E5" alt="API Testing" />
+  <img src="https://img.shields.io/badge/Validation-JSON%20Schema-6A1B9A" alt="JSON Schema" />
+  <img src="https://img.shields.io/badge/Test%20Data-DataFaker-F57C00" alt="DataFaker" />
+  <img src="https://img.shields.io/badge/Execution-Parallel%20Runner-informational" alt="Parallel Runner" />
   <a href="https://serverest.dev/?lang=en">
-    <img src="https://img.shields.io/badge/ServeRest-API%20Docs-0A66C2" />
+    <img src="https://img.shields.io/badge/ServeRest-Users%20API-00ACC1" alt="ServeRest Users API" />
   </a>
 </p>
 
----
-
-## 📌 Summary / Resumen
-
-### 🇪🇸 Resumen
-
-Proyecto de automatización de pruebas API construido con **Karate DSL** para **ServeRest**, con cobertura modular
-enfocada actualmente en el dominio de **Usuarios**. Incluye escenarios **positivos y negativos**, validación de *
-*schemas JSON**, datos reutilizables, respuestas esperadas externalizadas y dos modos de ejecución: un **runner estándar
-con JUnit 5** y un **runner paralelo**.
-
-### 🇺🇸 Summary
-
-API test automation project built with **Karate DSL** for **ServeRest**, currently focused on the **Users** domain with
-a modular and scalable structure. It includes **positive and negative** scenarios, **JSON schema** validation, reusable
-test data, externalized expected responses, and two execution modes: a **standard JUnit 5 runner** and a **parallel
-runner**.
-
----
+<p align="center"><b>🌐 Language / Idioma</b></p>
+<p align="center">
+  🇬🇧 English &nbsp; | &nbsp;
+  <a href="./README.es.md">🇪🇸 Español</a>
+</p>
 
 <p align="center">
-  <a href="#english">🇺🇸 English</a> | <a href="#espanol">🇪🇸 Español</a>
+  API automation framework built with <b>Karate DSL</b> for <b>ServeRest</b>, designed to demonstrate modular API test design, reusable validation assets, runner flexibility, and scalable reporting for QA Automation portfolios.
 </p>
 
 ---
-<a id="espanol"></a>
 
-## 🇪🇸 Español
+## 🎯 Why This Project Matters
 
-### Descripción
+This project demonstrates QA automation best practices for API testing with **Karate DSL**, **Java**, and **Maven**,
+with a strong focus on:
 
-Proyecto de automatización de pruebas API construido con **Karate DSL** para **ServeRest**.
+- reusable test assets
+- maintainable feature organization
+- positive and negative coverage
+- schema validation
+- selective execution by tags
+- standard and parallel runner strategies
+- portfolio-ready documentation and reporting
 
-🔗 **Documentación oficial de la API:** [ServeRest API](https://serverest.dev/?lang=es)
-
-La implementación actual cubre el módulo de **Usuarios**, incluyendo escenarios de prueba **positivos y negativos**,
-validación de **esquemas JSON**, datos de prueba reutilizables, **generación dinámica de datos con Datafaker** y
-respuestas esperadas externalizadas.
-
-### Alcance actual
-
-Cobertura actual del módulo **Usuarios**:
-
-- `GET /usuarios`
-- `POST /usuarios`
-- `GET /usuarios/{_id}`
-- `PUT /usuarios/{_id}`
-- `DELETE /usuarios/{_id}`
-
-### Stack tecnológico
-
-- Java
-- Maven
-- Karate DSL
-- JUnit 5
-- JSON
-- Datafaker
-
-### Estructura del proyecto
-
-```text
-src/test
-├── java
-│   └── runner
-│       ├── RunnerTest.java
-│       └── RunnerTestParallel.java
-└── resources
-    ├── features/users
-    ├── data
-    ├── helpers
-    ├── schemas
-    ├── responses
-    └── karate-config.js
-```
-
-### Runners disponibles
-
-#### 1. Runner estándar
-
-Ejecuta la suite etiquetada con `@users` usando el runner JUnit 5 de Karate.
-
-```java
-package runner;
-
-import com.intuit.karate.junit5.Karate;
-
-class RunnerTest {
-
-    @Karate.Test
-    Karate runTestSuite() {
-        return Karate.run("classpath:features").tags("@users").relativeTo(getClass());
-    }
-
-}
-```
-
-#### 2. Runner paralelo
-
-Ejecuta la misma suite en paralelo con **5 hilos**, genera reportes en `target/karate-reports` y produce salida **JUnit
-XML** y **Cucumber JSON**.
-
-```java
-package runner;
-
-import com.intuit.karate.Results;
-import com.intuit.karate.Runner;
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-public class RunnerTestParallel {
-
-    @Test
-    void runTestSuite() {
-        Results results = Runner.path("classpath:features")
-                .tags("@users")
-                .backupReportDir(false)
-                .reportDir("target/karate-reports")
-                .outputJunitXml(true)
-                .outputCucumberJson(true)
-                .parallel(5);
-
-        assertEquals(0, results.getFailCount(), results.getErrorMessages());
-    }
-
-}
-```
-
-### Cómo ejecutarlo
-
-#### Ejecutar todas las pruebas
-
-```bash
-mvn test
-```
-
-#### Ejecutar el runner estándar
-
-```bash
-mvn test -Dtest=RunnerTest
-```
-
-#### Ejecutar el runner paralelo
-
-```bash
-mvn test -Dtest=RunnerTestParallel
-```
-
-> Si tu configuración Maven requiere el nombre con paquete, puedes probar:
-
-```bash
-mvn test -Dtest=runner.RunnerTest
-mvn test -Dtest=runner.RunnerTestParallel
-```
-
-#### Ejecutar por tags
-
-```bash
-mvn test -Dtest=RunnerTest -Dkarate.options="--tags @positive"
-```
-
-```bash
-mvn test -Dtest=RunnerTest -Dkarate.options="--tags @negative"
-```
-
-```bash
-mvn test -Dtest=RunnerTest -Dkarate.options="--tags @create-user"
-```
-
-#### Ejecutar un feature específico
-
-```bash
-mvn test -Dtest=RunnerTest -Dkarate.options="classpath:features/users/CreateUser.feature"
-```
-
-### Reportes
-
-Después de la ejecución, Karate genera reportes en:
-
-```text
-target/karate-reports/
-```
-
-El runner paralelo además genera:
-
-- **JUnit XML**
-- **Cucumber JSON**
-
-### Buenas prácticas aplicadas
-
-- Escenarios positivos y negativos
-- Schemas reutilizables
-- Payloads y responses externalizados
-- Ejecución selectiva por tags
-- Ejecución paralela
-- Estructura modular y escalable
-- Generación dinámica de datos de prueba con Datafaker
-- Enfoque de diseño basado en ISTQB
-
-### Próximos pasos
-
-- Agregar cobertura para **Login**
+It is designed to show practical capability in **API test architecture**, **reusable test design**, **debugging
+readiness**, and **scalable execution patterns**.
 
 ---
-<a id="english"></a>
 
-## 🇺🇸 English
+## 🚀 Project Overview
 
-### Description
+This repository contains an API automation framework for **ServeRest**, currently focused on the **Users** domain.
 
-API test automation project built with **Karate DSL** for **ServeRest**.
+It includes:
 
-🔗 **Official API documentation:** [ServeRest API](https://serverest.dev/?lang=en)
+- positive and negative scenarios
+- JSON schema validation
+- reusable test data
+- externalized expected responses
+- dynamic data generation with DataFaker
+- a standard JUnit 5 runner
+- a parallel runner for faster execution
 
-The current implementation covers the **Users** module with **positive and negative** test scenarios, **JSON schema**
-validation, reusable test data, and externalized expected responses.
+🔗 **API under test:** https://serverest.dev/?lang=en  
+🔗 **Repository:** https://github.com/CarlosArman/karate-serverest-api-automation
 
-### Current scope
+---
 
-Current coverage for the **Users** module:
+## ✨ What This Framework Demonstrates
 
-- `GET /usuarios`
-- `POST /usuarios`
-- `GET /usuarios/{_id}`
-- `PUT /usuarios/{_id}`
-- `DELETE /usuarios/{_id}`
+### Functional Coverage
 
-### Tech stack
+- ✅ `GET /usuarios`
+- ✅ `POST /usuarios`
+- ✅ `GET /usuarios/{_id}`
+- ✅ `PUT /usuarios/{_id}`
+- ✅ `DELETE /usuarios/{_id}`
 
-- Java
-- Maven
-- Karate DSL
-- JUnit 5
-- JSON
-- Datafaker
+### Engineering Practices
 
-### Project structure
+- ✅ Positive and negative scenario design
+- ✅ Reusable JSON schemas
+- ✅ Externalized responses and data
+- ✅ Dynamic data generation with DataFaker
+- ✅ Tag-based selective execution
+- ✅ Standard JUnit 5 runner
+- ✅ Parallel Karate runner
+- ✅ JUnit XML and Cucumber JSON outputs
 
-```text
-src/test
-├── java
-│   └── runner
-│       ├── RunnerTest.java
-│       └── RunnerTestParallel.java
-└── resources
-    ├── features/users
-    ├── data
-    ├── helpers
-    ├── schemas
-    ├── responses
-    └── karate-config.js
+### QA Portfolio Value
+
+- ✅ API automation with Karate DSL
+- ✅ Maintainable and modular structure
+- ✅ Clear execution strategy
+- ✅ Practical evidence generation
+- ✅ Clean portfolio-oriented documentation
+
+---
+
+## 🧰 Tech Stack
+
+- **Language:** Java
+- **Build Tool:** Maven
+- **API Automation Framework:** Karate DSL
+- **Test Runner:** JUnit 5
+- **Validation:** JSON / JSON Schema
+- **Test Data:** DataFaker
+- **API Under Test:** ServeRest
+
+---
+
+## 🏗 Project Structure
+
+```bash
+karate-serverest-api-automation
+├── src/
+│   └── test/
+│       ├── java/
+│       │   └── runner/              # Standard and parallel Karate runners
+│       └── resources/
+│           ├── features/users/      # Feature files for the Users API domain
+│           ├── data/                # Reusable test data
+│           ├── helpers/             # Helper utilities and dynamic data support
+│           ├── schemas/             # JSON schema validation files
+│           ├── responses/           # Externalized expected responses
+│           └── karate-config.js     # Global Karate configuration
+├── docs/                            # Additional documentation
+├── CHANGELOG.md                     # Project changelog
+├── CONTRIBUTING.md                  # Contribution guide
+├── pom.xml                          # Maven dependencies and build configuration
+├── README.md                        # Main documentation in English
+└── README.es.md                     # Main documentation in Spanish
 ```
 
-### Available runners
+---
 
-#### 1. Standard runner
+## ⚙ Quick Start
 
-Runs the suite tagged with `@users` using the Karate JUnit 5 runner.
+### 1. Clone the repository
 
-```java
-package runner;
-
-import com.intuit.karate.junit5.Karate;
-
-class RunnerTest {
-
-    @Karate.Test
-    Karate runTestSuite() {
-        return Karate.run("classpath:features").tags("@users").relativeTo(getClass());
-    }
-
-}
+```bash
+git clone https://github.com/CarlosArman/karate-serverest-api-automation.git
+cd karate-serverest-api-automation
 ```
 
-#### 2. Parallel runner
+### 2. Install dependencies
 
-Runs the same suite in parallel with **5 threads**, writes reports to `target/karate-reports`, and produces **JUnit XML
-** and **Cucumber JSON** output.
-
-```java
-package runner;
-
-import com.intuit.karate.Results;
-import com.intuit.karate.Runner;
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-public class RunnerTestParallel {
-
-    @Test
-    void runTestSuite() {
-        Results results = Runner.path("classpath:features")
-                .tags("@users")
-                .backupReportDir(false)
-                .reportDir("target/karate-reports")
-                .outputJunitXml(true)
-                .outputCucumberJson(true)
-                .parallel(5);
-
-        assertEquals(0, results.getFailCount(), results.getErrorMessages());
-    }
-
-}
+```bash
+mvn clean install
 ```
 
-### How to run
-
-#### Run all tests
+### 3. Run the full suite
 
 ```bash
 mvn test
 ```
 
-#### Run the standard runner
+---
+
+## ▶ Main Commands
+
+For the full command reference, see:
+
+- **[docs/COMMANDS.md](./docs/COMMANDS.md)**
+- **[docs/COMMANDS.es.md](./docs/COMMANDS.es.md)**
 
 ```bash
+# Run all tests
+mvn test
+
+# Run the standard runner
 mvn test -Dtest=RunnerTest
-```
 
-#### Run the parallel runner
-
-```bash
+# Run the parallel runner
 mvn test -Dtest=RunnerTestParallel
-```
 
-> If your Maven setup requires the fully qualified name, you can try:
-
-```bash
-mvn test -Dtest=runner.RunnerTest
-mvn test -Dtest=runner.RunnerTestParallel
-```
-
-#### Run by tags
-
-```bash
+# Run by tag
 mvn test -Dtest=RunnerTest -Dkarate.options="--tags @positive"
-```
 
-```bash
-mvn test -Dtest=RunnerTest -Dkarate.options="--tags @negative"
-```
-
-```bash
-mvn test -Dtest=RunnerTest -Dkarate.options="--tags @create-user"
-```
-
-#### Run a specific feature
-
-```bash
+# Run a specific feature
 mvn test -Dtest=RunnerTest -Dkarate.options="classpath:features/users/CreateUser.feature"
 ```
 
-### Reports
+> If your Maven setup requires the fully qualified runner name, you can also try:
+>
+> ```bash
+> mvn test -Dtest=runner.RunnerTest
+> mvn test -Dtest=runner.RunnerTestParallel
+> ```
+
+---
+
+## 📊 Reporting and Evidence
 
 After execution, Karate generates reports in:
 
@@ -399,17 +215,83 @@ The parallel runner also generates:
 - **JUnit XML**
 - **Cucumber JSON**
 
-### Applied good practices
+This gives the project stronger execution traceability and makes it easier to integrate with CI/CD pipelines or
+reporting dashboards later.
 
-- Positive and negative scenarios
-- Reusable schemas
-- Externalized payloads and responses
-- Tag-based selective execution
-- Parallel execution
-- Modular and scalable structure
-- Dynamic test data generation with Datafaker
-- ISTQB-aligned test design
+---
 
-### Next steps
+## 🧠 Architecture Snapshot
 
-- Add **Login** coverage
+The framework is organized around clear separation of concerns:
+
+- **`runner/`** → execution entry points
+- **`features/users/`** → business-focused API scenarios
+- **`schemas/`** → reusable validation contracts
+- **`responses/`** → externalized expected results
+- **`data/`** → reusable test data
+- **`helpers/`** → dynamic data and support logic
+- **`karate-config.js`** → centralized runtime configuration
+
+For full architecture details, see:
+
+- **[docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md)**
+- **[docs/ARCHITECTURE.es.md](./docs/ARCHITECTURE.es.md)**
+
+---
+
+## 🔗 Related Project
+
+If you would like to explore another API automation project in the **Karate ecosystem**, check out:
+
+### [PetStore_Karate](https://github.com/CarlosArman/PetStore_Karate)
+
+A related project built with **Karate** against the **Swagger Petstore API**, which complements this repository by
+expanding API automation coverage into a different domain. It is also integrated with **GitHub Actions** and publishes
+test reports through **GitHub Pages**, adding CI visibility and shareable execution evidence.
+
+This helps demonstrate practical experience not only in **API test automation with Karate**, but also in **CI
+integration** and **report publication workflows** for portfolio-ready QA projects.
+
+---
+
+## 📚 Documentation Index
+
+### Core docs
+
+- **[docs/COMMANDS.md](./docs/COMMANDS.md)** → Commands reference (English)
+- **[docs/COMMANDS.es.md](./docs/COMMANDS.es.md)** → Commands reference (Spanish)
+- **[docs/ENVIRONMENT.md](./docs/ENVIRONMENT.md)** → Environment guide (English)
+- **[docs/ENVIRONMENT.es.md](./docs/ENVIRONMENT.es.md)** → Environment guide (Spanish)
+- **[docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md)** → Architecture guide (English)
+- **[docs/ARCHITECTURE.es.md](./docs/ARCHITECTURE.es.md)** → Architecture guide (Spanish)
+
+### Repository docs
+
+- **[CHANGELOG.md](./CHANGELOG.md)** → Project changelog (English)
+- **[CHANGELOG.es.md](./CHANGELOG.es.md)** → Historial de cambios (Español)
+- **[CONTRIBUTING.md](./CONTRIBUTING.md)** → Contribution guide (English)
+- **[CONTRIBUTING.es.md](./CONTRIBUTING.es.md)** → Guía de contribución (Español)
+
+---
+
+## 🛣 Roadmap
+
+- [ ] Add **Login** coverage
+- [ ] Expand domain coverage beyond Users
+- [ ] Improve CI/CD-oriented reporting narrative
+- [ ] Add execution evidence samples to the repository
+
+---
+
+## 👨‍💻 Author
+
+**Carlos R.**  
+QA / Test Automation Engineer  
+🔗 GitHub: https://github.com/CarlosArman
+
+---
+
+## ⭐ Final Note
+
+This project is intentionally structured to demonstrate not only API automation capability with Karate, but also **clean
+test design, reusable validation assets, and engineering maturity in QA Automation documentation**.
