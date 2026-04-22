@@ -12,7 +12,8 @@ This document explains the architectural design of the Karate ServeRest API auto
 
 ## 1. Architecture Goal
 
-The framework is designed to provide a **modular, maintainable, and reusable** API automation solution for the ServeRest Users domain.
+The framework is designed to provide a **modular, maintainable, and reusable** API automation solution for the ServeRest
+Users domain.
 
 It aims to:
 
@@ -54,26 +55,34 @@ Reports under target/karate-reports
 ## 4. Folder Responsibilities
 
 ### `runner/`
+
 Contains the execution entry points:
+
 - a standard JUnit 5 Karate runner
 - a parallel Karate runner
 
-### `features/users/`
-Contains feature files focused on the Users API domain.
+### `features/`
+
+Contains feature files focused on the Users and Login API domain.
 
 ### `data/`
+
 Contains reusable test data assets.
 
 ### `helpers/`
+
 Contains support logic and dynamic data helpers.
 
 ### `schemas/`
+
 Contains reusable JSON schemas used for response validation.
 
 ### `responses/`
+
 Contains externalized expected response payloads.
 
 ### `karate-config.js`
+
 Contains centralized Karate runtime configuration.
 
 ---

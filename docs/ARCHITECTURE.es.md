@@ -12,7 +12,8 @@ Este documento explica el diseño arquitectónico del proyecto Karate ServeRest 
 
 ## 1. Objetivo de la arquitectura
 
-El framework está diseñado para proveer una solución de automatización API **modular, mantenible y reutilizable** para el dominio de Usuarios en ServeRest.
+El framework está diseñado para proveer una solución de automatización API **modular, mantenible y reutilizable** para
+el dominio de Usuarios en ServeRest.
 
 Busca:
 
@@ -54,26 +55,34 @@ Reportes en target/karate-reports
 ## 4. Responsabilidad de carpetas
 
 ### `runner/`
+
 Contiene los puntos de entrada de ejecución:
+
 - un runner estándar de Karate con JUnit 5
 - un runner paralelo de Karate
 
-### `features/users/`
-Contiene los feature files enfocados en el dominio API de Usuarios.
+### `features/`
+
+Contiene los feature files enfocados en el dominio API de Usuarios y Login.
 
 ### `data/`
+
 Contiene activos reutilizables de datos de prueba.
 
 ### `helpers/`
+
 Contiene lógica de soporte y utilitarios para datos dinámicos.
 
 ### `schemas/`
+
 Contiene esquemas JSON reutilizables para validación de respuestas.
 
 ### `responses/`
+
 Contiene payloads de respuestas esperadas externalizadas.
 
 ### `karate-config.js`
+
 Contiene la configuración centralizada de ejecución de Karate.
 
 ---
@@ -119,7 +128,7 @@ Esto mejora la trazabilidad y facilita la integración posterior con CI.
 
 ## 8. Notas de escalabilidad
 
-La estructura actual es adecuada para crecer hacia:
+La estructura actual es adecuada para crecer hacía:
 
 - más dominios API
 - estrategias más avanzadas de tagging

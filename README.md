@@ -1,5 +1,5 @@
 <h1 align="center">Karate ServeRest API Automation</h1>
-<hr>
+
 <p align="center">
   <a href="https://github.com/CarlosArman/karate-serverest-api-automation">
     <img src="https://img.shields.io/badge/Version-v1.0.0-blue" alt="Version" />
@@ -82,6 +82,7 @@ It includes:
 
 ### Functional Coverage
 
+- ✅ `GET /login`
 - ✅ `GET /usuarios`
 - ✅ `POST /usuarios`
 - ✅ `GET /usuarios/{_id}`
@@ -130,7 +131,7 @@ karate-serverest-api-automation
 │       ├── java/
 │       │   └── runner/              # Standard and parallel Karate runners
 │       └── resources/
-│           ├── features/users/      # Feature files for the Users API domain
+│           ├── features/            # Feature files for the Users and Login API domain
 │           ├── data/                # Reusable test data
 │           ├── helpers/             # Helper utilities and dynamic data support
 │           ├── schemas/             # JSON schema validation files
@@ -225,7 +226,7 @@ reporting dashboards later.
 The framework is organized around clear separation of concerns:
 
 - **`runner/`** → execution entry points
-- **`features/users/`** → business-focused API scenarios
+- **`features/`** → business-focused API scenarios
 - **`schemas/`** → reusable validation contracts
 - **`responses/`** → externalized expected results
 - **`data/`** → reusable test data
@@ -286,7 +287,7 @@ integration** and **report publication workflows** for portfolio-ready QA projec
 ## 👨‍💻 Author
 
 **Carlos R.**  
-QA / Test Automation Engineer  
+QA Test Automation Engineer  
 🔗 GitHub: https://github.com/CarlosArman
 
 ---
